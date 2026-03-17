@@ -44,11 +44,5 @@ app.use((err, req, res, next) => {
 // Start server
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-    console.log('\n🚀 IKEA Email Service Started');
-    console.log('================================');
-    console.log(`📡 Server running on port ${PORT}`);
-    console.log(`📧 Email from: ${process.env.EMAIL_USER}`);
-    console.log(`📬 Sending to: ${process.env.RECIPIENT_EMAIL}`);
-    console.log('✅ Ready to accept applications');
-    console.log('================================\n');
+    console.log('\n IKEA Email Service Started');
 });
