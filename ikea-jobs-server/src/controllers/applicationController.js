@@ -1,7 +1,7 @@
 const { sendActiveTrailEmail } = require('../services/activeTrailService');
 
 /**
- * Handles job application submissions by sending notification emails
+ * Handles job application submissions by sending notification emails via ActiveTrail
  * 
  * This controller:
  * - Receives application data from the frontend
@@ -40,9 +40,10 @@ const handleApplication = async (req, res) => {
         const { fullName, email, phone, job } = req.body;
         const jobTitle = job?.description || "משרה כללית";
 
+        // שליחה מקבילה של שני המיילים דרך ActiveTrail בלבד
         await Promise.all([
-            sendActiveTrailEmail({ fullName, email, phone, jobTitle }, false),
-            sendActiveTrailEmail({ fullName, email, phone, jobTitle }, true) 
+            sendActiveTrailEmail({ fullName, email, phone, jobTitle }, false), // לרכז גיוס
+            sendActiveTrailEmail({ fullName, email, phone, jobTitle }, true)    // למועמד
         ]);
 
         res.status(200).json({ success: true, message: 'Emails sent successfully' });

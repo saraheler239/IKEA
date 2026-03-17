@@ -1,0 +1,21 @@
+{
+  "name": "ikea-email-service",
+  "version": "1.0.0",
+  "description": "IKEA Jobs Email Service - Independent email service with CV attachments",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["email", "nodemailer", "jobs", "ikea"],
+  "author": "Sarah Heler",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "nodemailer": "^8.0.2"
+  }
+}

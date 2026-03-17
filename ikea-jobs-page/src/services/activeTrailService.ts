@@ -31,7 +31,7 @@ interface SendApplicationResult {
  * - Sends application data to the backend server
  * - Backend forwards two emails via ActiveTrail: one to recruiter, one to candidate
  * - Handles network errors and server errors gracefully
- * - Does NOT send CV file (file upload not implemented on backend)
+ * - Does NOT send CV file (ActiveTrail doesn't support attachments)
  * 
  * The backend server must be running on http://localhost:3001
  * 

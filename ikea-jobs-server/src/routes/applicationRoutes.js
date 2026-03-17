@@ -1,7 +1,7 @@
 /**
  * Application Routes
  * 
- * Defines API routes for job application submissions.
+ * Defines API routes for job application submissions via ActiveTrail.
  * 
  * Available routes:
  * - POST /send-application - Submit a job application
@@ -17,7 +17,7 @@ const { handleApplication } = require('../controllers/applicationController');
 /**
  * POST /send-application
  * 
- * Handles job application submissions.
+ * Handles job application submissions via ActiveTrail.
  * See applicationController.handleApplication for details.
  */
 router.post('/send-application', handleApplication);
