@@ -7,7 +7,8 @@ import { applicationSchema, ApplicationFormData } from './schema';
 import { extractErrorMessage } from './utils';
 import { ERROR_MESSAGES } from './constants';
 import { saveApplicationData, loadApplicationData } from './storage';
-
+//use the email service instead of active trail for sending applications
+import { sendJobApplicationEmail } from '../../services/emailService.client';
 /**
  * Return type for useApplicationForm hook
  */
@@ -85,6 +86,8 @@ export const useApplicationForm = (job: Job): UseApplicationFormReturn => {
         });
 
         const result = await sendJobApplication(job, data);
+        //use the email service instead of active trail for sending applications
+        //const result = await sendJobApplicationEmail(job, data);
 
         if (result.success) {
           setSuccess(true);
