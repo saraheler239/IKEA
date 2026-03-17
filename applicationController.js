@@ -8,15 +8,6 @@ const handleApplication = async (req, res) => {
         const { fullName, email, phone } = req.body;
         const job = typeof req.body.job === 'string' ? JSON.parse(req.body.job) : req.body.job;
         const cvFile = req.file;
-
-        console.log('\n=== New Application Received ===');
-        console.log('Candidate:', fullName);
-        console.log('Email:', email);
-        console.log('Phone:', phone);
-        console.log('Job:', job?.description || 'N/A');
-        console.log('================================\n');
-
-        // שליחה מקבילה של שני המיילים
         await Promise.all([
             sendCandidateEmail({ fullName, email, phone, job }),
             sendRecruiterEmail({ fullName, email, phone, job }, cvFile)
@@ -28,7 +19,7 @@ const handleApplication = async (req, res) => {
         });
         
     } catch (error) {
-        console.error('❌ Error:', error);
+        console.error('Error:', error);
         res.status(500).json({ 
             success: false, 
             error: 'Failed to send emails',

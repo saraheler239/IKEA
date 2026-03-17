@@ -26,9 +26,6 @@ const sendRecruiterEmail = async (data, cvFile) => {
     const job = data.job;
     const jobTitle = job?.description || "משרה כללית";
     const recruiterEmail = process.env.RECIPIENT_EMAIL;
-    
-    console.log('📧 Sending email to recruiter:', recruiterEmail);
-    console.log('📎 CV file attached:', cvFile ? cvFile.originalname : 'No CV');
 
     const mailOptions = {
         from: `"IKEA Jobs System" <${process.env.EMAIL_USER}>`,
@@ -117,7 +114,7 @@ const sendRecruiterEmail = async (data, cvFile) => {
     };
 
     const result = await transporter.sendMail(mailOptions);
-    console.log('✅ Recruiter email sent! ID:', result.messageId);
+    console.log(' Recruiter email sent! ID:', result.messageId);
     return result;
 };
 
@@ -130,7 +127,7 @@ const sendCandidateEmail = async (data) => {
     const job = data.job;
     const jobTitle = job?.description || "משרה כללית";
     
-    console.log('📧 Sending confirmation to candidate:', data.email);
+    console.log('Sending confirmation to candidate:', data.email);
 
     const mailOptions = {
         from: `"IKEA Jobs" <${process.env.EMAIL_USER}>`,
@@ -154,7 +151,7 @@ const sendCandidateEmail = async (data) => {
                     </div>
                     
                     <div style="background-color: #d4edda; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                        <p style="margin: 0; color: #155724;">✅ <strong>הבקשה שלך התקבלה בהצלחה!</strong></p>
+                        <p style="margin: 0; color: #155724;"> <strong>הבקשה שלך התקבלה בהצלחה!</strong></p>
                     </div>
                     
                     <p style="font-size: 15px;">
@@ -175,7 +172,6 @@ const sendCandidateEmail = async (data) => {
     };
 
     const result = await transporter.sendMail(mailOptions);
-    console.log('✅ Candidate email sent! ID:', result.messageId);
     return result;
 };
 
